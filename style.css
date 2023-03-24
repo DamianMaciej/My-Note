@@ -21,6 +21,8 @@ body {
 }
 
 .menu button,
+.note-edit-panel .saveEdit,
+.note-edit-panel .cancelEdit,
 .note-panel .save,
 .note-panel .cancel {
     padding: 12px 25px;
@@ -33,6 +35,8 @@ body {
 }
 
 .menu button:hover,
+.note-edit-panel .saveEdit:hover,
+.note-edit-panel .cancelEdit:hover,
 .note-panel .save:hover,
 .note-panel .cancel:hover {
     background-color: #333;
@@ -63,21 +67,27 @@ body {
 
 .note-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 20px;
     background-color: rgba(0, 0, 0, .09);
 }
 
+.note-header i {
+    font-size: 16px;
+    margin-left: 15px;
+}
+
 .note-header h3 {
     transition: font-size 0.3s;
+    margin-right: 25px;
 }
 
 .note-header:hover h3 {
     font-size: 25px;
 }
 
-.delate-note {
+.delate-note,
+.editBtn {
     background: none;
     border: none;
     font-size: 18px;
@@ -87,7 +97,10 @@ body {
 
 .delate-note:hover {
     color: rgb(255, 0, 0);
-    font-size: 25px;
+}
+
+.editBtn:hover {
+    color: rgb(255, 145, 0);
 }
 
 .note-body {
@@ -97,31 +110,41 @@ body {
 
 .note-panel {
     display: none;
+}
+
+.note-edit-panel {
+    display: none;
+}
+
+.note-panel,
+.note-edit-panel {
     flex-direction: column;
     align-items: center;
     justify-content: center;
     position: absolute;
     padding: 40px 0;
-    width: 600px;
+    width: 80vw;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px black;
-
 }
 
-.note-panel h2 {
+.note-panel h2,
+.note-edit-panel h2 {
     margin-bottom: 20px;
     text-transform: uppercase;
 }
 
-.note-panel label {
+.note-panel label,
+.note-edit-panel label {
     margin-bottom: 10px;
 }
 
 .note-panel #text,
+.note-edit-panel #textEditor,
 .note-panel #category {
     margin-bottom: 20px;
     padding: 10px 20px;
@@ -133,8 +156,19 @@ body {
     border: 1px solid black;
 }
 
-.note-panel .error {
+.note-panel .error,
+.note-edit-panel .error {
     margin-bottom: 20px;
     color: red;
     visibility: hidden;
+}
+
+@media only screen and (max-width: 620px) {
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        min-height: 150px;
+    }
+
 }
